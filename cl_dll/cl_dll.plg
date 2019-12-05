@@ -1,0 +1,122 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cl_dll - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\bb1\LOCALS~1\Temp\RSP2B.tmp" with contents
+[
+/nologo /MT /W3 /GX /Zi /O2 /I "..\utils\vgui\include" /I "..\engine" /I "..\common" /I "..\pm_shared" /I "..\dlls" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "CLIENT_DLL" /D "CLIENT_WEAPONS" /Fp".\Release/cl_dll.pch" /YX /Fo".\Release/" /Fd".\Release/" /FD /c 
+"D:\Jeux\Half-Life\HL-Parpaing\extras\sources\code\cl_dll\dtime.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\bb1\LOCALS~1\Temp\RSP2B.tmp" 
+Creating temporary file "C:\DOCUME~1\bb1\LOCALS~1\Temp\RSP2C.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib winmm.lib ../utils/vgui/lib/win32_vc6/vgui.lib wsock32.lib fmodvc.lib /nologo /subsystem:windows /dll /incremental:no /pdb:".\Release/client.pdb" /map:".\Release/client.map" /machine:I386 /out:".\Release\client.dll" /implib:".\Release/client.lib" 
+".\Release\carnet.obj"
+".\Release\crowbar.obj"
+".\Release\ev_hldm.obj"
+".\Release\hl_baseentity.obj"
+".\Release\hl_events.obj"
+".\Release\hl_objects.obj"
+".\Release\hl_weapons.obj"
+".\Release\InspecteurSkill.obj"
+".\Release\interface.obj"
+".\Release\parpaing.obj"
+".\Release\sifflet2.obj"
+".\Release\vgui_scrollbar2.obj"
+".\Release\vgui_slider2.obj"
+".\Release\voice_banmgr.obj"
+".\Release\voice_status.obj"
+".\Release\voice_vgui_tweakdlg.obj"
+".\Release\Alcool.obj"
+".\Release\ammo.obj"
+".\Release\ammo_secondary.obj"
+".\Release\ammohistory.obj"
+".\Release\bararea.obj"
+".\Release\battery.obj"
+".\Release\blame.obj"
+".\Release\cdll_int.obj"
+".\Release\chaos.obj"
+".\Release\com_weapons.obj"
+".\Release\death.obj"
+".\Release\DefuseDaParpaing.obj"
+".\Release\demo.obj"
+".\Release\dtime.obj"
+".\Release\entity.obj"
+".\Release\ev_common.obj"
+".\Release\events.obj"
+".\Release\flashlight.obj"
+".\Release\GameStudioModelRenderer.obj"
+".\Release\geiger.obj"
+".\Release\health.obj"
+".\Release\hud.obj"
+".\Release\hud_msg.obj"
+".\Release\hud_redraw.obj"
+".\Release\hud_servers.obj"
+".\Release\hud_spectator.obj"
+".\Release\hud_update.obj"
+".\Release\in_camera.obj"
+".\Release\input.obj"
+".\Release\inputw32.obj"
+".\Release\menu.obj"
+".\Release\message.obj"
+".\Release\mp3.obj"
+".\Release\parsemsg.obj"
+".\Release\pm_debug.obj"
+".\Release\pm_math.obj"
+".\Release\pm_shared.obj"
+".\Release\poseparpaing.obj"
+".\Release\saytext.obj"
+".\Release\status_icons.obj"
+".\Release\statusbar.obj"
+".\Release\studio_util.obj"
+".\Release\StudioModelRenderer.obj"
+".\Release\text_message.obj"
+".\Release\train.obj"
+".\Release\tri.obj"
+".\Release\util.obj"
+".\Release\vgui_checkbutton2.obj"
+".\Release\vgui_ClassMenu.obj"
+".\Release\vgui_ConsolePanel.obj"
+".\Release\vgui_ControlConfigPanel.obj"
+".\Release\vgui_CustomObjects.obj"
+".\Release\vgui_grid.obj"
+".\Release\vgui_helpers.obj"
+".\Release\vgui_infos.obj"
+".\Release\vgui_int.obj"
+".\Release\vgui_listbox.obj"
+".\Release\vgui_loadtga.obj"
+".\Release\vgui_mapmenu.obj"
+".\Release\vgui_MOTDWindow.obj"
+".\Release\vgui_SchemeManager.obj"
+".\Release\vgui_ScorePanel.obj"
+".\Release\vgui_ServerBrowser.obj"
+".\Release\vgui_TeamFortressViewport.obj"
+".\Release\vgui_teammenu.obj"
+".\Release\view.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\bb1\LOCALS~1\Temp\RSP2C.tmp"
+Creating temporary file "C:\DOCUME~1\bb1\LOCALS~1\Temp\RSP2D.bat" with contents
+[
+@echo off
+copy .\Release\client.dll c:\jeux\half-life\hl-parpaing\cl_dlls
+]
+Creating command line "C:\DOCUME~1\bb1\LOCALS~1\Temp\RSP2D.bat"
+Compiling...
+dtime.cpp
+Linking...
+   Creating library .\Release/client.lib and object .\Release/client.exp
+<h3>Output Window</h3>
+Performing Custom Build Step on .\Release\client.dll
+        1 fichier(s) copi‚(s).
+
+
+
+<h3>Results</h3>
+client.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

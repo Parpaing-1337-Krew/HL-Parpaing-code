@@ -1,0 +1,23 @@
+Bien, ici vous trouverez les scripts qui ont permis à moultes gens d'installer Half-Life Parpaing.
+Mais pourquoi il y a-t-il plusieurs scripts, et moultes dossiers ?
+Eh bien, figurez-vous que nous avons été pousser le vice jusqu'à créer des graphiques pour l'installeur.
+Ces fichiers additionnels sont utilisés par les trois scripts ci-dessous.
+J'ai reproduit l'arborescence partant du dossier NSIS2, donc un copier/coller et c'est bon.
+
+Half-Life Parpaing - 1.51.nsi
+	Ce fichier est prévu pour la build NSIS2.0 du 28/09/2003.
+	Je le mets uniquement parce que c'est ce qui a servi à générer l'installeur original.
+	Préférer la version suivante.
+
+Half-Life Parpaing - 1.51 - NSIS 2.07.nsi
+	Ce fichier est prévu pour NSIS 2.07.
+	Il a subi quelques nettoyages et mises à jour pour être utilisable avec NSIS 2.07 (ça fonctionnera 
+	probablement aussi avec les versions ultérieures, avec au pire de petites modifications).
+	Il génèrera un fichier plus petit que le script du dessus, vu qu'il utilise LZMA en mode solid.
+
+Half-Life Parpaing - 1.51 - ZeroPourcent.nsi
+	Ce fichier est un dérivé de celui du dessus, et est donc lui aussi prévu pour NSIS 2.07.
+	Il a servi, comme son nom l'indique, à générer la version « Zéro Pourcent » disponible sur
+	http://xander135.free.fr/hlp/Half-Life_Parpaing_1.51_ZeroPourcent.exe .
+	Si le fichier n'est plus disponible, c'est qu'une autre version a été mise dans le dossier, ou que
+	free aura fermé mon espace web pour cause de saturation de bande passante.

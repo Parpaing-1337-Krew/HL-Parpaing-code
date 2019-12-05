@@ -1,0 +1,160 @@
+[Dimanche 17 Aout 2003]
+- Ajout du support des commentaires
+- Les animations d'attaque (en thirdperson) sont maintenant appelées par leur numéro
+
+[Mercredi 26 Février 2003]
+
+- (re)Création du fichier history.txt :
+	Yenapu de mon bÖw fichier ? Je suis le seul à mon servir on dirait.
+- Premiers tests :
+	La compilation passe sans aucun problème
+	Je suppose qu'il me manque des sprites, d'où quelques problèmes d'affichages. (Mais c'est quoi ce sprite au milieu de l'écran ???)
+	Il m'est impossible de poser un parpaing ! Un autre sprite s'affiche ? Je ne vois pas grand chose
+	B1][Lors d'une recherche sur les serveurs, HLP est indiqué comme étant HL Teamplay
+	B2][EXPLOIT : En se mettant dans la zone Costarama et en gardant la touche +attack2 enfoncée, le maçon débite des parpaings à une vitesse ahurissante.
+- Correction du bogue B1
+	Fichier teamplay_gamerules.h virtual const char *GetGameDescription( void ) { return "HL-Parpaing"; }  // this is the game name that gets seen in the server browser
+	Mais çà n'a rien changé. Le bogue est résolu pour le moment, dans client.cpp. Mais si on veut indiquer au serveur quel type de jeu se déroule (Parpaing-DM, Beat the Megret, Defuse the Parpaing...), il va falloir modifier çà.
+- Correction du bogue B2
+	Fichier triggers.cpp ajout de la variable m_iDernierRetrait // 5 secondes de délai entre les retraits | 
+Haha, je viens de découvrir qu'il faut rester 'on use' sur le mur pour poser le parpaing. Ca à l'air de bien fonctionner.
+Il faudrait se décider sur la gestion des rounds, pour chaque parpaing posé, cela rajoute 1 point à la base.
+- Changement : La première attaque du parpaing n'est plus utilisée pour poser un parpaing
+- Ajout : cvar mp_derrick, totalement inutile, mais ajoute un peu de fun ;>
+- Bug : B3][On change de team bcp trop rapidement. 1 changement/round || 1 changement/30s ?
+- Ajout : son joué dans la zone du mur sur lequel le parpaing est posé
+- Ajout : la truelle cause maintenant des dégâts au mur adverse.
+- Ajout : pour chaque mur construit, l'équipe marque 10 points
+
+[Jeudi 27 Février 2003]
+
+- Bug : B4][ L'équipe ne marque pas 10 points, sauf si on utilise AddPoints, dans ce cas, c'est le maçon qui a posé le dernier parpaing qui marque les points, ainsi que l'équipe. Il serait plus juste que seule l'équipe marque. AddPointsToTeam ne marche pas
+- Exploit : En gardant le drop ou le tir secondaire activé avec le parpaing, on peut facilement transporter 2 parpaings en passant rapidement de l'un à l'autre. Technique de jeu à laisser ?
+- Ajout : CBasePlayer::Cite()
+	Tapez !cite dans la console pour voir ;>
+- Bug : B5][ La truelle, le sifflet et le carnet sont droppable
+- Ajout, lorsqu'on jette un parpaing, le maçon sort automatiquement sa truelle
+- Correction du bogue B5
+	Dans CBasePlayer::DropPlayerItem on vérifie l'id de l'arme
+- Changement :
+	Les murs ont des points de vie, chaque attaque contre eux leur en enlève, çà rend le code bien plus agréable.
+	La variable avancement indique a présent le pourcentage de construction du mur.
+	Le model évolue selon l'avancement
+- Ajout : Beat the Megret
+	Je pense avoir codé 80% de cette branche, il reste à améliorer l'IA, mais je ne suis pas chaud DU TOUT.
+	Il faut peut-être mieux adapter mon code en fonction du gameplay souhaité.
+	note aux modeleurs : pour l'instant le model utilisé est celui du scientist
+	Vu le peu de bugs, il est activé par défaut.
+- Ajout : Systeme d'auto-help
+	Ca m'a pris du temps mais c'est fait et çà marche assez bien. Le systeme est en place, il reste à compléter les messages d'aide, j'ai juste saisi les 6 premiers.
+
+[Vendredi 28 Février]
+
+En essayant de buter megret à coups de parpaings lancés, je me suis rendu compte qu'il ne subissait aucun dégat. C'est réparé.
+En revanche, il va falloir que Fab adapte son système à mon code.
+- Changement : Elimination du dropping sur toutes les armes. Un bug permettait de rammasser un parpaing en en ayant déja un.
+- Ajout : Defuse the Parpaing. Et hop, un deuxième bonus ;> ! Il est codé à 70% mais est jouable et présente peu de bugs, donc je l'ai activé par defaut (mp_defuse).
+	Il faut s'occupper de la partie client (barre d'avancées, etc...) le reste est mis en place.
+
+[Samedi 1 Mars]
+
+- Tests :
+	Bogue B6][Dans les espaces réduits, un parpaing donné au joueur apparait de façon....étrange.
+A DETERMINER RAPIDEMENT : Quelle est la taille du parpaing ? Les modeleurs peuvent-ils nous aider ?
+	Bogue B7][Les MP3 ne se lancent pas entièrement, çà dure moins d'une seconde. Problème de version de fmod ?
+Pour Fab : Je pense que tu devrais remplacer LoadLibrary("fmod.dll") par LoadLibrary("hl-parpaing/fmod.dll"), ainsi, fmod.dll n'a pas besoin d'être à la racine de HL.
+
+- Ajout : Capture the Parpaing. Et de trois. Codé à 80% mais jouable, donc activé. (mp_ctf)
+- Changement : valeurs des récompenses :
+							-pose d'un parpaing :		3
+							-construction d'un mur :	30
+							-elimination de megret :	10
+							-capture d'1 flag	   :	1
+
+[Mardi 13 mai]
+oui oui je n'utilise pas souvent ce fichier donc pour ce qui est un peu loin comme modification je fais de mémoire
+
+- Ajout d'une cvar coté client pour la lecteure ou non des mp3s
+
+Test multi :
+[
+- Crash lors du reveil d'un macon ayant eu avant un macon (1 heure pour trouver les elements perturbateurs....) , 
+(30 min pour trouver d'ou venez le bug et voila c'est bon)
+
+-arme trop rapide (elles enchainent le pov macon en 2 mouvements :/.... et prob de son allant avec
+
+- lors dun lancer de parpaing sur un ennmie , celui ci ne perd pas de point de vie.
+]
+
+- Ajout d'un sprite et d'une barre de temps quand l'inspecteur a reussi à sifllet un macon !
+sprites/qblame.spr (128*128 normalement)
+
+- Rajout de 3 sons différent pour le sifflet 
+weapon/sifflet1.wav
+weapon/sifflet2.wav
+weapon/sifflet3.wav
+5 secondes entre chaques attaques au sifflet
+
+- recoder une partie du systéme de reception du parpaing que ce soit entre une team ou entre adversaire.
+ca devrai marcher nikel maintenant.
+
+TODO (pour maintenant pour pas que j'oublie), faire une vitesse minimum sur al fonction setspeed de douanier car sinon c'est un
+truc a se tirer une balle vu comment on avance a petit pas !
+hop me suis eclater a foutre une exponentiel comme equation 
+min 175 (sans parpaing) et max 420 (175 c deja assez lent)
+
+- Rajout de 3 sons différents pour le carnet
+weapon/carnet1.wav
+weapon/carnet2.wav
+weapon/carnet3.wav
+7 secondes entres chaques attaques du carnet
+
+BUG :
+apres un chaos , la vue du player reste ... comme si il était accroupi
+
+BUG:
+moia je voudrai des couelur de team fixe :/ comme tfc ou cs par exemple
+rouge = ricard
+51 = bleu
+jaune ou vert = inspecteur ....
+
+mod bourré :
+modification :ajout de vitessse dans presque nimporte quel direction (avant qu'une...)
+
+Bug corrigé :
+- nombre de macon faux lors dun reset (javais juste oublié de verif ke c un macon et pas un inspecteur :/)
+
+Ralenti la truelle et le parpaing (primary attack)
+0.5 sec pour la truelle <- a pres verif , c un bon timing , les mouvement sont biensyncro :]
+1 sec pour le parpaing <- les anim en elle même sont pas tres belles et pas tre smouvementé alors.....
+
+Bug corrigé :
+tjs bourré même quand on est KO et même aprés. (empeche le fade du KO et fou le bordel tout court)
+a peu pres corrigé ... il me bouffe mon fade d'entré ....
+
+[Mercredi 14 Mai]
+-Comme blp l'avait gentillement demandé, j'ai placé la dll fmod dans le rep hlp direct soit :
+hl-parpaing\fmod.dll
+
+[samedi 17 mai]
+- ajout de la grosse surprise (ohoh)
+envoi de stats a notre base de donné pour faire des stats general sans prob.
+pour eviter el flooder la base de donnée en connectio et deconnection , les requetes ne sont pas envoyé immédiatement , elles sont dabord stocké dans un tableau et au bout d'un intervalle regulier
+ells sont envoyé pernardes.
+
+- correction du bug qui faisait crashé le server lors de la fin de la construction d'un mur (aller savoir pourquoi)
+
+- ajout des animation de la pose du parpaing (avec le bouton USE) et aussi annulation de cette anim lors de l'arret de la pose.
+
+- a faire : gestion de plusieurs mur (donc crash party quoi...)
+
+[lundi 19 mai]
+on se prenait la tete pour la taille des models, bah jai trouvé un tut , qui permet de faire le SetSize automatiquement.
+j'espére que ca marche....
+- bah nan
+
+[samedi 24 mai]
+-dounaier voulait qu'on soit spectateur apres un blame pdt un moment.
+pas de blem , en revanche , je préfére l'idée du respawn complet apres la periode d'observation c'est à dire retour à la cabane.
+
+comme ca les macn ne se feront pas blamer a la chaine.

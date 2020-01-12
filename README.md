@@ -25,8 +25,10 @@ dans les faits (dérivés permis, ...) ça ne change pas grand-chose.
 - Bob le Pointu
 - douanier007 / TroyMcLure
 - madfab
+- BBk
+- MiK
 
-Si l'un d'entre eux se manifeste je l'ajouterai dans les collaborateurs.
+Si l'un d'entre eux se manifeste (ou un autre oublié) je l'ajouterai dans les collaborateurs.
 
 Pour les autres, gardez à l'esprit que tout le monde était jeune et que
 le standard de qualité était différent par rapport à aujourd'hui, donc
